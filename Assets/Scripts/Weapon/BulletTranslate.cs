@@ -8,6 +8,6 @@ public class BulletTranslate : MonoBehaviour
     [SerializeField] private float Speed;
     void Update()
     {
-        transform.Translate(transform.right * Speed *  Time.deltaTime);
+        transform.Translate(Vector2.right * Speed *  Time.deltaTime);
     }
 }
