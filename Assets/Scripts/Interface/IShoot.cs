@@ -7,10 +7,12 @@ using UnityEngine;
 /// </summary>
 public interface IShoot 
 {
-    float Speed { get; set; }
+    float Speed { get;  }
 
-    float ShootTime { get; set; }
+    float ShootTime { get; }
 
+    GameObject Bullet { get; }
+    Transform BulletSpawn { get; }
     void Shoot();
 
     void Reload();
