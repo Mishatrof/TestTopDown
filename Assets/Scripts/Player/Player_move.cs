@@ -8,7 +8,7 @@ public class Player_move : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
 
-
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,10 @@ public class Player_move : MonoBehaviour
     {
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
+
+        anim.SetFloat("Horizontal", direction.x);
+        anim.SetFloat("Vertical", direction.y);
+        anim.SetFloat("Speed", direction.sqrMagnitude);
     }
     void FixedUpdate()
     {
