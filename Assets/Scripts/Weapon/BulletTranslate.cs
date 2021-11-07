@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BulletTranslate : MonoBehaviour
 {
-  
+    [Range(3,15)]
+    [SerializeField] private float Speed;
     void Update()
     {
-        transform.Translate(transform.forward * Time.deltaTime);
+        transform.Translate(transform.right * Speed *  Time.deltaTime);
     }
 }
