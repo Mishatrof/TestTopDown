@@ -7,7 +7,7 @@ public class Player_move : MonoBehaviour
     public float speed;
     private Vector2 direction;
     private Rigidbody2D rb;
-
+    public Transform Hands;
     public Animator anim;
 
     // Start is called before the first frame update
@@ -22,9 +22,19 @@ public class Player_move : MonoBehaviour
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
-        anim.SetFloat("Horizontal", direction.x);
-        anim.SetFloat("Vertical", direction.y);
-        anim.SetFloat("Speed", direction.sqrMagnitude);
+        anim.SetFloat("Speed", direction.magnitude);
+        if (direction.x > 0.5)
+        {
+            transform.rotation =
+            Quaternion.Euler(0, 0, 0);
+
+        }
+        else
+        {
+            transform.rotation =
+            Quaternion.Euler(0, -direction.x * 180, 0);
+            Hands.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
     void FixedUpdate()
     {

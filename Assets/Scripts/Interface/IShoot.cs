@@ -12,7 +12,7 @@ public interface IShoot
     float ShootTime { get; }
 
     GameObject Bullet { get; }
-    Transform BulletSpawn { get; }
+    Transform[] BulletSpawn { get; }
     void Shoot();
 
     void Reload();
